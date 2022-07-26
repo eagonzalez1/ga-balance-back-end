@@ -10,7 +10,7 @@ router.get('/', postsCtrl.index)
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
 router.post('/', checkAuth, postsCtrl.create)
-// router.delete('/:id', checkAuth, postsCtrl.delete)
+router.delete('/:id', checkAuth, postsCtrl.delete)
 // router.put('/:id', checkAuth, postsCtrl.update)
 // router.put('/:id/add-photo', checkAuth, postsCtrl.addPhoto)
 

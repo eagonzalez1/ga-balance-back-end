@@ -4,9 +4,10 @@ const Schema = mongoose.Schema
 
 const postSchema = new Schema({
   author: {type: String, required: true},
+  profile: String,
   type: String,
   headline: String,
-  description: String,
+  details: String,
   link: String,
   likes: [],
   photo: String,

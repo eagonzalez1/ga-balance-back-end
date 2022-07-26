@@ -3,17 +3,11 @@ import { Profile } from '../models/profile.js'
 
 function create(req, res) {
   req.body.author = req.user.name
+  req.body.profile = req.user.profile
+  console.log(req)
   Post.create(req.body)
   .then(post => {
-    Profile.findById(req.user.profile)
-    .then(profile => {
-      console.log(profile)
-      console.log(post._id)
-      console.log(post)
-      profile.posts.push(post)
-      profile.save()
       res.json(post)
-    })
   })
   .catch(err => {
     console.log(err)
@@ -23,9 +17,6 @@ function create(req, res) {
 
 function index(req, res) {
     Post.find({})
-    .populate('author')
-    .populate('restaurant')
-    .populate('item')
     .then(posts => {
         res.json(posts)
     })

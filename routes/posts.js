@@ -11,7 +11,7 @@ router.get('/', postsCtrl.index)
 router.use(decodeUserFromToken)
 router.post('/', checkAuth, postsCtrl.create)
 router.delete('/:id', checkAuth, postsCtrl.delete)
+router.put('/:id/add-photo', checkAuth, postsCtrl.addPhoto)
 // router.put('/:id', checkAuth, postsCtrl.update)
-// router.put('/:id/add-photo', checkAuth, postsCtrl.addPhoto)
 
 export { router }
